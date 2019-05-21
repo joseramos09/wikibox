@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Archivo;
 use Illuminate\Http\Request;
 
 class FileController extends Controller
@@ -13,7 +14,10 @@ class FileController extends Controller
      */
     public function index()
     {
-        //
+
+        $files = Archivo::paginate(15);
+
+        return view('public.files.index') -> withFiles($files);
     }
 
     /**
@@ -23,7 +27,9 @@ class FileController extends Controller
      */
     public function create()
     {
-        //
+
+        return view('public.files.index');
+
     }
 
     /**
@@ -34,7 +40,22 @@ class FileController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $file = $request -> file('file');
+
+        $request -> validate([
+           $file => 'required|file|max:20000'
+        ]);
+
+        $file = Archivo::create([
+           'users_id' => $request->users()->id,
+            'name' => request('name'),
+            'description' => request('description'),
+            'slug' => request('slug')
+
+        ]);
+
+        $file -> users() -> sync(request('users'));
     }
 
     /**
