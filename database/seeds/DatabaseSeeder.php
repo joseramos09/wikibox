@@ -11,6 +11,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call('FileSeeder');
+        // $this->call('FileSeeder');
+
+        factory(App\Users::class, 3)->create();
+        $files = factory(App\Archivo::class, 20)->create();
     }
 }

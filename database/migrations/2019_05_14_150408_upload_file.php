@@ -18,6 +18,7 @@ class UploadFile extends Migration
             $table->integer('user_id')->unsigned();
             $table->string('file_name')->unique();
             $table->string('description');
+            $table->string('slug');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
