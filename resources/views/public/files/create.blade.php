@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Archivos')
+@section('title', 'Nuevos Archivos')
 
 <!-- Vista de la creación de un nuevo archivo en la aplicación -->
 @section('content')

@@ -19,7 +19,7 @@ Route::get('/contact', 'PagesController@contact')->name('contact')->middleware('
 Route::get('/about', 'PagesController@about')->name('about');
 
 // Rutas para la entidad Files
-Route::resource('/files', 'FileController');
+Route::resource('/files', 'FileController@index');
 
 // Rutas de autentificación
 Auth::routes();

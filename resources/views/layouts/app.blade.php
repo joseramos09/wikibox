@@ -36,9 +36,9 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Archivos</a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{route('file.index')}}">Tus Archivos</a>
+                                <a class="dropdown-item" href="{{route('files.index')}}">Tus Archivos</a>
                                 @auth
-                                    <a class="dropdown-item" href="{{route('file.create')}}">Subir Archivos</a>
+                                    <a class="dropdown-item" href="{{route('files.create')}}">Subir Archivos</a>
                                 @endauth
 
                             </div>
