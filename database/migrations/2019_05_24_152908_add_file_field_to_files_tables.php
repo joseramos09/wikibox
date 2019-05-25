@@ -14,7 +14,7 @@ class AddFileFieldToFilesTables extends Migration
     public function up()
     {
         Schema::table('upload_file', function (Blueprint $table) {
-            $table-string('file')->after('description')->nullable();
+            $table->string('name')->after('description')->nullable();
         });
     }
 
@@ -26,7 +26,7 @@ class AddFileFieldToFilesTables extends Migration
     public function down()
     {
         Schema::table('upload_file', function (Blueprint $table) {
-            $table->dropColumn('file');
+            $table->dropColumn('name');
         });
     }
 }

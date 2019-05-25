@@ -9,7 +9,7 @@ class UserFileController extends Controller
     public function index($userSlug)
     {
         $user = User::where('slug', $userSlug)->firstOrFail();
-        $files = $user->files()->paginate(10);
+        $files = $user->files()->paginate(15);
         return view('public.userfiles.index',[
             'user'  => $user,
             'files' => $files

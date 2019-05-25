@@ -13,7 +13,8 @@ class Archivos extends Model
         'user_id',
         'name',
         'description',
-        'slug'
+        'slug',
+        'archivo'
     ];
 
     public function user(){
