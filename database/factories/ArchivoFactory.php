@@ -2,14 +2,15 @@
 
 /* @var $factory \Illuminate\Database\Eloquent\Factory */
 
-use App\Archivo;
+use App\Archivos;
 use Faker\Generator as Faker;
 
-$factory->define(App\Archivo::class, function (Faker $faker) {
+$factory->define(App\Archivos::class, function (Faker $faker) {
 
     $name = $faker-> name;
     return [
         'user_id' => random_int(1,3),
+        'slug' => str_slug($name, "-"),
         'name' => $name,
         'description' => $faker->text(200)
     ];

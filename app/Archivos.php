@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Archivo extends Model
+class Archivos extends Model
 {
 
     protected $fillable = [

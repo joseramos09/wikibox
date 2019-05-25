@@ -2,11 +2,27 @@
 
 namespace App\Http\Controllers;
 
-use App\Archivo;
+use App\Archivos;
 use Illuminate\Http\Request;
 
 class FileController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth', [
+            'only' => ['create' , 'store', 'edit', 'update', 'destroy']
+        ]);
+        $this->middleware('can:touch,file',[
+            'only' => ['edit','update','destroy']
+        ]);
+    }
+    /**
+     *
+     *
+     * @return \Illuminate\Http\Response
+     */
+
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +31,7 @@ class FileController extends Controller
     public function index()
     {
 
-        $files = Archivo::paginate(15);
+        $files = Archivos::paginate(15);
 
         return view('public.files.index') -> withFiles($files);
     }
@@ -47,7 +63,7 @@ class FileController extends Controller
            $file => 'required|file|max:20000'
         ]);
 
-        $file = Archivo::create([
+        $file = Archivos::create([
            'users_id' => $request->users()->id,
             'name' => request('name'),
             'description' => request('description'),
