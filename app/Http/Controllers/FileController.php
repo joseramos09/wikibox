@@ -82,7 +82,8 @@ class FileController extends Controller
      */
     public function show($id)
     {
-        //
+        $file = Archivo::where('slug', $slug)->firstOrFail();
+        return view('public.files.show', ['file' => $file]);
     }
 
     /**
@@ -91,9 +92,9 @@ class FileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Archivos $file)
     {
-        //
+        return view('public.files.edit', ['file' => $file]);
     }
 
     /**
@@ -103,9 +104,16 @@ class FileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(FileRequest $request, Archivos $file)
     {
-        //
+        $archivo = $request->file('archivo');
+        $file->update([
+            'name' => request('name'),
+            'slug' => str_slug(request('name'), "-"),
+            'description' => request('description'),
+            'archivo' => $archivo->store('archivos','public'),
+        ]);
+        return redirect('/files/'.$file->slug);
     }
 
     /**
@@ -114,8 +122,10 @@ class FileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Archivos $file)
     {
-        //
+        $file->delete();
+
+        return redirect('/');
     }
 }
