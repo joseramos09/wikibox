@@ -44,7 +44,7 @@ class FileController extends Controller
     public function create()
     {
 
-        return view('public.files.index');
+        return view('public.files.create');
 
     }
 
@@ -80,7 +80,7 @@ class FileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
         $file = Archivo::where('slug', $slug)->firstOrFail();
         return view('public.files.show', ['file' => $file]);
