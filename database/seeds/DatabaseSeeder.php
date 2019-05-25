@@ -14,6 +14,6 @@ class DatabaseSeeder extends Seeder
         // $this->call('FileSeeder');
 
         factory(App\User::class, 3)->create();
-        $files = factory(App\Archivos::class, 20)->create();
+        factory(App\Archivos::class, 20)->create();
     }
 }

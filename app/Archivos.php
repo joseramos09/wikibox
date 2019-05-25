@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Archivos extends Model
 {
-    public $table = 'files';
+    protected $table = 'files';
 
     protected $fillable = [
 
@@ -14,20 +14,20 @@ class Archivos extends Model
         'name',
         'description',
         'slug',
-        'archivo'
+        'files'
     ];
 
     public function user(){
 
-        return $this -> belongsTo(user::class);
+        return $this -> belongsTo(User::class);
     }
 
     public function getArchivoAttribute($archivo)
     {
-        if( !$archivo || starts_with($archivo, 'http') ){
-            return $archivo;
+        if( !$file || starts_with($file, 'http') ){
+            return $file;
         }
-        return Storage::disk('public')->url($archivo);
+        return Storage::disk('public')->url($file);
     }
 
 }

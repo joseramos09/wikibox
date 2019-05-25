@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name','slug', 'email', 'password',
     ];
 
     /**
@@ -37,5 +37,18 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    protected $table = 'upload_file';
+
+    public function files()
+    {
+        return $this->hasMany(Archivos::class);
+    }
+    public function getFirstNameAttribute($value)
+    {
+        return ucfirst($value);
+    }
+
+    public function owns($file)
+    {
+        return $this->id == $file->user_id;
+    }
 }
