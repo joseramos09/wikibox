@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Archivos;
 use Illuminate\Http\Request;
+use App\Http\Requests\FileRequest;
 
 class FileController extends Controller
 {
@@ -64,12 +65,14 @@ class FileController extends Controller
         ]);
 
         $file = Archivos::create([
-           'users_id' => $request->users()->id,
+           'user_id' => $request->user()->id,
             'name' => request('name'),
             'description' => request('description'),
             'slug' => request('slug')
 
         ]);
+
+        return redirect('/');
 
         $file -> users() -> sync(request('users'));
     }
@@ -82,7 +85,7 @@ class FileController extends Controller
      */
     public function show($slug)
     {
-        $file = Archivo::where('slug', $slug)->firstOrFail();
+        $file = Archivos::where('slug', $slug)->firstOrFail();
         return view('public.files.show', ['file' => $file]);
     }
 

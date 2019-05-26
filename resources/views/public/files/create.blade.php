@@ -8,7 +8,7 @@
 
         @csrf
 
-        @include('public.files.partials.form')
+        @include('public.files.partial.form')
 
         <button type="submit" class="btn btn-dark">Subir archivo</button>
     </form>
