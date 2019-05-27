@@ -19,13 +19,13 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-2">
-                        <img class="img-thumbnail mx-auto" src="{{ $file->archivo }}" alt="">
+                        <img class="img-thumbnail mx-auto" src="{{ $file->file }}" alt="">
                     </div>
                     <div class="col">
-                        <h5 class="card-title">Usuario: <a href="{{ route('userfiles.index', $file->user->slug) }}" title="{{ $file->user->name }}'s file list">{{ $file->user->name }}</a></h5>
+                        <h5 class="card-title">Usuario: <a href="{{ route('userfiles.index', $file->user->slug) }}" title="{{ $file->user->name }}'file list">{{ $file->user->name }}</a></h5>
                         <p class="card-text"><h5>Descripción:</h5>{{ str_limit($file->description, 300) }}</p>
 
-                        @include('public.files.partials.buttons')
+                        @include('public.files.partial.button')
 
                         <a href="/files/{{ $file->slug }}" class="btn btn-primary btn-sm mr-2 float-right">More Info</a>
                     </div>

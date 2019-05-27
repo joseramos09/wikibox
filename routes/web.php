@@ -12,7 +12,7 @@
 */
 
 // Páginas estáticas
-Route::get('/', 'FileController@index')->name('root');
+Route::get('/', 'PagesController@index')->name('root');
 
 Route::get('/contact', 'PagesController@contact')->name('contact')->middleware('auth');
 
@@ -27,7 +27,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 // Rutas Archivos-Usuario
-Route::get('/users/{user}/files', 'UserFilesController@index')->name('userfiles.index');
+Route::get('/users/{user}/files', 'UserFileController@index')->name('userfiles.index');
 
 
 

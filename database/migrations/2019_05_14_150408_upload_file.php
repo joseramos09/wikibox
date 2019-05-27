@@ -16,7 +16,7 @@ class UploadFile extends Migration
         Schema::create('upload_file', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
-            $table->string('file_name')->unique();
+            $table->string('name')->unique();
             $table->string('description');
             $table->string('slug')->unique();
             $table->timestamps();
@@ -34,6 +34,6 @@ class UploadFile extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('files');
+        Schema::dropIfExists('upload_files');
     }
 }

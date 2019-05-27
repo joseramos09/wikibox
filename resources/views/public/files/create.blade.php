@@ -12,3 +12,4 @@
 
         <button type="submit" class="btn btn-dark">Subir archivo</button>
     </form>
+@endsection

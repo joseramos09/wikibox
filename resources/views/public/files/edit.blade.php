@@ -10,7 +10,7 @@
         @csrf
         @method('patch')
 
-        @include('public.files.partials.form')
+        @include('public.files.partial.form')
 
         <button type="submit" class="btn btn-primary">Editar archivo</button>
     </form>

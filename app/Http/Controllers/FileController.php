@@ -8,6 +8,12 @@ use App\Http\Requests\FileRequest;
 
 class FileController extends Controller
 {
+    /**
+     * FileController constructor
+     *
+     * Mediante una policy se dan los permisos de autorización para la modificación de los elementos claves
+     * de la aplicación
+     */
 
     public function __construct()
     {
@@ -25,7 +31,7 @@ class FileController extends Controller
      */
 
     /**
-     * Display a listing of the resource.
+     * Se muestra una lista de archivos en la pagina principal.
      *
      * @return \Illuminate\Http\Response
      */
@@ -55,26 +61,26 @@ class FileController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(FileRequest $request)
     {
 
-        $file = $request -> file('file');
+        $files = $request -> file('files');
 
         $request -> validate([
            $file => 'required|file|max:20000'
         ]);
 
-        $file = Archivos::create([
-           'user_id' => $request->user()->id,
-            'name' => request('name'),
-            'description' => request('description'),
-            'slug' => request('slug')
+            Archivos::create([
+                'user_id' => $request->user()->id,
+                'name' => request('name'),
+                'description' => request('description'),
+                'slug' => request('slug'),
+                'file' => $file->store('file','public')
 
         ]);
 
         return redirect('/');
 
-        $file -> users() -> sync(request('users'));
     }
 
     /**
@@ -109,12 +115,13 @@ class FileController extends Controller
      */
     public function update(FileRequest $request, Archivos $file)
     {
-        $archivo = $request->file('archivo');
+        $files = $request->file('archivo');
+
         $file->update([
             'name' => request('name'),
             'slug' => str_slug(request('name'), "-"),
             'description' => request('description'),
-            'archivo' => $archivo->store('archivos','public'),
+            'file' => $files->store('file','public'),
         ]);
         return redirect('/files/'.$file->slug);
     }

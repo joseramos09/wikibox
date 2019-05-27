@@ -21,14 +21,14 @@ class LoginController extends Controller
     use AuthenticatesUsers;
 
     /**
-     * Where to redirect users after login.
+     * Tras el logueo,aqui se especifica el lugar a donde se redirije la aplicación.
      *
      * @var string
      */
     protected $redirectTo = '/';
 
     /**
-     * Create a new controller instance.
+     * Se crea una nueva instancia en el controllador.
      *
      * @return void
      */
