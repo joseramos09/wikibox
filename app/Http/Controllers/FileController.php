@@ -44,7 +44,7 @@ class FileController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Sube un nuevo archivo de un usuario.
      *
      * @return \Illuminate\Http\Response
      */
@@ -56,7 +56,7 @@ class FileController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Crea un archivo en el storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -84,7 +84,7 @@ class FileController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Muestra la información del archivo creado.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -96,7 +96,7 @@ class FileController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Edita los archivos creados anteriormente.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -107,7 +107,7 @@ class FileController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update de edit del archivo en el storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
@@ -127,7 +127,7 @@ class FileController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Elimina el archivo del storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response

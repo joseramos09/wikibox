@@ -7,7 +7,7 @@ use Illuminate\Database\Migrations\Migration;
 class AddFileFieldToFilesTables extends Migration
 {
     /**
-     * Run the migrations.
+     * Migracion para añadirle campos a la tablas de uploadFile.
      *
      * @return void
      */

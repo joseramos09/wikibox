@@ -44,7 +44,7 @@ class FileRequest extends FormRequest
     {
         return [
             'name' => 'Nombre del Archivos',
-            'description' => 'Descripcion del Archivos'
+            'description' => 'Descripcion del Archivo'
 
         ];
     }

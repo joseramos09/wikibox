@@ -1,4 +1,4 @@
-<!-- Formulario de subida de archivos (Nombre,Archivos,Descripción) -->
+<!-- Formulario para la subida de archivos-->
 
 <div class="row">
     <div class="col">

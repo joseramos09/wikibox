@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'File Info')
-<!-- Mostrar información del archivo mediante una vista aislada-->
+<!-- Mostrar información del archivo-->
 @section('content')
     <div class="card" style="width: 20rem;">
         <img class="img-thumbnail" src="{{ $file->file }}" alt="">
@@ -13,8 +13,3 @@
 
 @endsection
 
-<!--<h2>{{ $file->name }}</h2>
-    <p>{{ $file->description }}</p>
-    <div class="col-2">
-        <img class="rounded mx-auto d-block" src="{{ $file->file }}" alt="">
-</div>-->

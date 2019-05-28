@@ -7,7 +7,7 @@ use Illuminate\Database\Migrations\Migration;
 class UploadFile extends Migration
 {
     /**
-     * Run the migrations.
+     * Migracion de Upload_file.
      *
      * @return void
      */

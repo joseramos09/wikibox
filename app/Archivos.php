@@ -22,6 +22,10 @@ class Archivos extends Model
         return $this -> belongsTo(User::class);
     }
 
+    /**
+     * funcion para poder cojer rutas de imagenes desde fuera de la aplicación.
+     */
+
     public function getFileAttribute($file)
     {
         if( !$file || starts_with($file, 'http') ){

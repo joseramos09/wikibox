@@ -3,7 +3,7 @@
 @section('title', 'Wikibox List')
 
 @section('content')
-    <!-- Listado de archivos -->
+    <!-- Lista de archivos -->
     <h1>Mis Archivos</h1>
 
     <!-- Paginación -->
@@ -33,7 +33,7 @@
             </div>
         </div>
     @empty
-        <p>No se encuentra archivo disponible.</p>
+        <p>Lista de archivos vacia.</p>
     @endforelse
 
     <!-- Paginación -->

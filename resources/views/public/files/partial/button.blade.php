@@ -1,3 +1,4 @@
+<!--Creacion de los botones para editar y boorrar el archivo creado.-->
 @auth
     @can('touch', $file)
         <a href="/files/{{ $file->id }}/edit" class="btn btn-warning btn-sm mr-2 float-right">Editar Archivo</a>
