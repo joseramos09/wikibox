@@ -14,11 +14,11 @@
     </div>
     <div class="col">
         <div class="form-group">
-            <label for="archivo">Subir archivo</label>
-            <input type="file" class="form-control-file mt-1 {{ $errors->has('archivo')?"is-invalid":"" }}" id="archivo" name="archivo">
-            @if( $errors->has('archivo'))
+            <label for="file">Subir archivo</label>
+            <input type="file" class="form-control-file mt-1 {{ $errors->has('file')?"is-invalid":"" }}" id="file" name="file">
+            @if( $errors->has('file'))
                 <div class="invalid-feedback">
-                    {{ $errors->first('archivo') }}
+                    {{ $errors->first('file') }}
                 </div>
             @endif
         </div>

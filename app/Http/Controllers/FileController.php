@@ -67,7 +67,7 @@ class FileController extends Controller
         $files = $request -> file('files');
 
         $request -> validate([
-           $file => 'required|file|max:20000'
+           $files => 'required|file|max:20000'
         ]);
 
             Archivos::create([
@@ -75,7 +75,7 @@ class FileController extends Controller
                 'name' => request('name'),
                 'description' => request('description'),
                 'slug' => request('slug'),
-                'file' => $file->store('file','public')
+                'file' => $files->store('file','public')
 
         ]);
 
@@ -115,13 +115,13 @@ class FileController extends Controller
      */
     public function update(FileRequest $request, Archivos $file)
     {
-        $files = $request->file('archivo');
+        $file = $request->file('archivo');
 
         $file->update([
             'name' => request('name'),
             'slug' => str_slug(request('name'), "-"),
             'description' => request('description'),
-            'file' => $files->store('file','public'),
+            'file' => $file->store('file','public'),
         ]);
         return redirect('/files/'.$file->slug);
     }

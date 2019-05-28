@@ -22,7 +22,7 @@ class Archivos extends Model
         return $this -> belongsTo(User::class);
     }
 
-    public function getArchivoAttribute($file)
+    public function getFileAttribute($file)
     {
         if( !$file || starts_with($file, 'http') ){
             return $file;

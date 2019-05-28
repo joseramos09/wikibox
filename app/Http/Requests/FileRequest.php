@@ -25,8 +25,8 @@ class FileRequest extends FormRequest
     {
         return [
             'name' => 'required|min:4',
-            'description' => 'required',
-            'file' => 'required'
+            'description' => 'required'
+
         ];
     }
 
@@ -35,8 +35,8 @@ class FileRequest extends FormRequest
         return [
             'name.required' => 'Nombre Obligatorio',
             'name.min' => 'El nombre debe tener como minimo 4 caracteres',
-            'description' => 'Descripcion Obligatoria',
-            'file' => 'Archivos Obligatoria'
+            'description' => 'Descripcion Obligatoria'
+
         ];
     }
 
@@ -44,8 +44,8 @@ class FileRequest extends FormRequest
     {
         return [
             'name' => 'Nombre del Archivos',
-            'description' => 'Descripcion del Archivos',
-            'file' =>'Archivos Subido'
+            'description' => 'Descripcion del Archivos'
+
         ];
     }
 }

@@ -12,7 +12,7 @@
 */
 
 // Páginas estáticas
-Route::get('/', 'PagesController@index')->name('root');
+Route::get('/', 'FileController@index')->name('root');
 
 Route::get('/contact', 'PagesController@contact')->name('contact')->middleware('auth');
 
