@@ -64,7 +64,7 @@ class FileController extends Controller
     public function store(FileRequest $request)
     {
 
-        $files = $request -> file('files');
+        $files = $request -> file('file');
 
         $request -> validate([
            $files => 'required|file|max:20000'
@@ -74,8 +74,8 @@ class FileController extends Controller
                 'user_id' => $request->user()->id,
                 'name' => request('name'),
                 'description' => request('description'),
-                'slug' => request('slug'),
-                'file' => $files->store('file','public')
+                'slug' => str_slug(request('name'), "-"),
+                'file' => $files->store('files','public')
 
         ]);
 
@@ -113,15 +113,15 @@ class FileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(FileRequest $request, Archivos $file)
+    public function update(FileRequest $request, Archivos $archivo)
     {
-        $file = $request->file('archivo');
+        $file = $request->file('file');
 
-        $file->update([
+        $archivo->update([
             'name' => request('name'),
             'slug' => str_slug(request('name'), "-"),
             'description' => request('description'),
-            'file' => $file->store('file','public'),
+            'file' => $file->store('files','public'),
         ]);
         return redirect('/files/'.$file->slug);
     }
